@@ -1,0 +1,19 @@
+.first {
+    &__son {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        height: 38vh;
+        background-color: orange;
+    }
+
+}
+
+:host::ng-deep .navBar {
+    display: flex;
+        flex-direction: row;
+    width: 14%;
+    background-color: #2D4A22;
+}
