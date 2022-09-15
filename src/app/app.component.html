@@ -1,19 +1,17 @@
+<app-header></app-header>
+ 
 <section class="section-template">
-  <div class="first">
-    <div class="container first__son">
-      <!-- <img src='../../assets/logo.svg' class="logo"> -->
-        <po-navbar
-          class="navBar"
-          [p-logo] ="logo"
-        >
-        </po-navbar> 
-      
+  <div class="cointainer">
+    <div class="first">
+      <div class="container first__son"></div>
     </div>
-    <app-in-finance> </app-in-finance>
-  </div>
-  <div class="second-part">
-    <div class="second__sun">
+    <div class="second-part">
+      <div class="second__sun">
+        <app-in-finance> </app-in-finance>
+      </div>
+      <po-modal #modal p-title="PO Modal"> We are TOTVERS!!! </po-modal>
 
+      <po-button p-label="Open modal" (p-click)="modal.open()"> </po-button>
     </div>
   </div>
 </section>

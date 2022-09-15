@@ -1,0 +1,11 @@
+:host::ng-deep .po-navbar {
+    background-color: #2D4A22!important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
+    .po-navbar-item-navigation{
+      display: none;
+    }
+}

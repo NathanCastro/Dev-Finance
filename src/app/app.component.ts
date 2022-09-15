@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { PoModalComponent } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  logo = '../assets/logo.svg'
+  @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
+  
 
 }
