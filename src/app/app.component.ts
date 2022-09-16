@@ -7,7 +7,14 @@ import { PoModalComponent } from '@po-ui/ng-components';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
+  @ViewChild(PoModalComponent, { static: true }) modal: PoModalComponent;
+ 
+
+  teste='abrir modal'
+  
+  public openModal(){
+    this.modal.open()
+  }
   
 
 }

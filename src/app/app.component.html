@@ -1,17 +1,17 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
  
-<section class="section-template">
-  <div class="cointainer">
-    <div class="first">
-      <div class="container first__son"></div>
-    </div>
-    <div class="second-part">
-      <div class="second__sun">
-        <app-in-finance> </app-in-finance>
+<div class="container">
+    <div class="row">
+      <div class="first">
+        <div class="container first__son"></div>
       </div>
-      <po-modal #modal p-title="PO Modal"> We are TOTVERS!!! </po-modal>
-
-      <po-button p-label="Open modal" (p-click)="modal.open()"> </po-button>
+      <div class="second-part">
+        <div class="second__sun">        
+        </div>
+        
+      </div>
     </div>
-  </div>
-</section>
+</div>
+
+<app-in-finance></app-in-finance>
+<app-modal>{{teste}}</app-modal>
