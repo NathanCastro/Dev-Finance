@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class InFinanceComponent implements OnInit {
 
  public logo = 'assets/logo.svg' ;
+ 
 
-  constructor() { }
+ ngOnInit() {
+ }
 
-  ngOnInit(): void {
-  }
 
 }

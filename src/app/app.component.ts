@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { PoModalComponent } from '@po-ui/ng-components';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,11 @@ import { PoModalComponent } from '@po-ui/ng-components';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(PoModalComponent, { static: true }) modal: PoModalComponent;
- 
-
-  teste='abrir modal'
-  
-  public openModal(){
-    this.modal.open()
-  }
-  
+   
+  table = [{
+   Entrada: 'PO Table', 
+   Valor: 'PO-UI',
+   Data: 'data'
+  }]
 
 }

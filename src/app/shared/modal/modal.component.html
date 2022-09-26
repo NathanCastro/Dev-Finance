@@ -1,10 +1,39 @@
-<div class="color">
-    <po-modal
-        #modal
-        p-title="Nova Transação"
-        [p-primary-action]="salvar"
-        [p-secondary-action]="Cancelar"
+
+ <po-modal
+    #modal
+    
+    p-title="Nova Transação"
+    [p-primary-action]="primary"
+    [p-secondary-action]="secundary"
     > 
-    </po-modal>
-    <a href="" (click)="modalOpen()">{{link}}</a>
-</div>
+    <form [formGroup]="form">
+        <po-input
+            name="Title"
+            p-clean
+            p-label="Descrição"
+            formControlName="name"
+            p-maxlength="15"
+            p-minlength="3"
+        >
+        </po-input>
+        <po-number
+            p-placeholder="0,00"
+            p-label="Valor"       
+        ></po-number>
+        <span>
+            Use o sinal - (negativo) para despesas e,(vírgula) para casas decimais 
+        </span>
+        <po-datepicker
+            name="datepicker"
+            p-label="Data"
+            p-format="dd/mm/yyyy"
+            p-placeholder="dd/mm/aaaa"
+        ></po-datepicker>
+    </form>
+</po-modal>
+
+
+<po-button 
+    (click)="modalOpen()"
+    [p-label]="titleModal"
+></po-button>

@@ -1,17 +1,18 @@
-<!-- <app-header></app-header> -->
- 
-<div class="container">
-    <div class="row">
-      <div class="first">
-        <div class="container first__son"></div>
-      </div>
-      <div class="second-part">
-        <div class="second__sun">        
-        </div>
-        
+<app-header></app-header>
+
+<div class="po-container">
+  <div class="po-md">
+    <div class="first">
+      <div class="first__son">
+        <app-in-finance></app-in-finance>    
       </div>
     </div>
+  </div>      
 </div>
 
-<app-in-finance></app-in-finance>
-<app-modal>{{teste}}</app-modal>
+<app-modal></app-modal>
+
+<po-table
+  [p-items]="table"
+>
+</po-table>

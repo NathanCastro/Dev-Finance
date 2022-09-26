@@ -1,4 +1,5 @@
-.color{
-    background-color: red;
-    margin-top: 40px;
+:host::ng-deep{
+    .po-button{
+        border: none;
+    }
 }
