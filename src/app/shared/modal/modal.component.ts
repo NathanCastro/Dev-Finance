@@ -47,6 +47,7 @@ export class ModalComponent implements OnInit {
     console.log('aqui vem o valor',this.form.value);
 
     if(this.form.valid){      
+      console.log(this.formulario);
       console.log('salvar');
       
     }else{
@@ -62,4 +63,8 @@ export class ModalComponent implements OnInit {
     
   }
   
+  onSubmit(){
+   
+    
+  }
 }

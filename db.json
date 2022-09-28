@@ -1,0 +1,12 @@
+{
+  "entrada": [
+    {
+      "id": 1,
+      "descrição": "sálario"
+    },
+    {
+      "descrição": "Saída",
+      "id": 2
+    }
+  ]
+}

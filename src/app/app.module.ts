@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,10 +7,10 @@ import { RouterModule } from '@angular/router';
 import { PoModalModule, PoModule, PoNavbarModule } from '@po-ui/ng-components';
 
 import { AppComponent } from './app.component';
+import { ContentComponent } from './shared/content/content.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { InFinanceComponent } from './shared/in-finance/in-finance.component';
 import { ModalComponent } from './shared/modal/modal.component';
-import { ContentComponent } from './shared/content/content.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ContentComponent } from './shared/content/content.component';
     ReactiveFormsModule,
     FormsModule,
     PoModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     PoNavbarModule,
     PoModalModule,

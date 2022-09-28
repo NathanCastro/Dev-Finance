@@ -1,19 +1,19 @@
 
  <po-modal
     #modal
-    
     p-title="Nova Transação"
     [p-primary-action]="primary"
     [p-secondary-action]="secundary"
     > 
-    <form [formGroup]="form">
+    <form [formGroup]="form" (onSubmit)="onSubmit()">
         <po-input
-            name="Title"
+            name="salvar"
             p-clean
             p-label="Descrição"
             formControlName="name"
             p-maxlength="15"
             p-minlength="3"
+            type="submit"
         >
         </po-input>
         <po-number

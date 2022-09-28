@@ -1,0 +1,9 @@
+http://localhost:3000/entrada
+
+###
+POST     http://localhost:3000/entrada HTTP/1.1
+content-type: application/json
+
+{
+    "descrição": "Saída"   
+}

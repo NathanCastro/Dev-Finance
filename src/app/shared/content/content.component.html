@@ -1,1 +1,6 @@
-<p>content works!</p>
+<po-table
+  *ngFor="let lista of entradas"
+  [p-items]="table"
+>
+{{lista.id}}
+</po-table>

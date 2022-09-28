@@ -7,10 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
    
-  table = [{
-   Entrada: 'PO Table', 
-   Valor: 'PO-UI',
-   Data: 'data'
-  }]
+  
 
 }
