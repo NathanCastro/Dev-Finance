@@ -7,3 +7,7 @@ content-type: application/json
 {
     "descrição": "Saída"   
 }
+
+
+
+# json-server --watch db.json

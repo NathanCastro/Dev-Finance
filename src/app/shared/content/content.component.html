@@ -1,6 +1,9 @@
 <po-table
-  *ngFor="let lista of entradas"
-  [p-items]="table"
+  *ngIf="entradas$ | async as lista; else loading"
+  [p-items]="lista"
 >
-{{lista.id}}
 </po-table>
+
+<ng-template  #loading>
+  <span>Carregando cursos...</span>
+</ng-template>

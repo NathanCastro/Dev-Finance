@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { AppService } from '../../../app/app.service';
-import { Entrada } from './entrada';
+import { Entrada } from '../models/entrada';
+import { AppService } from '../service/api-db.service';
 
 @Component({
   selector: 'app-content',
@@ -12,19 +13,19 @@ export class ContentComponent implements OnInit {
 
   constructor(private serviceListagem: AppService) { }
 
-  entradas: Entrada[]
+  //entradas: Entrada[];
+  
+  
+  entradas$: Observable<Entrada[]>;
 
   ngOnInit(): void {
-    this.serviceListagem.list().subscribe(dados => this.entradas = dados);
-    
+    this.listemDate();    
   }
 
-  table: Entrada[] = [{
-    id: null,
-    descricao: null, 
-    // valor: null,
-    // data: null
-  }]
-
-
+  listemDate(){
+    // this.serviceListagem.list()
+    // .subscribe(dados => this.entradas = dados);
+    
+    this.entradas$ = this.serviceListagem.list()
+  }
 }
