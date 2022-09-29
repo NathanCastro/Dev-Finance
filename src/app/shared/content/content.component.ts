@@ -10,9 +10,10 @@ import { AppService } from '../service/api-db.service';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
+  // @Input() icon = "po-icon po-icon-delete"
 
   constructor(private serviceListagem: AppService) { }
-
+  
   //entradas: Entrada[];
   
   
@@ -27,5 +28,10 @@ export class ContentComponent implements OnInit {
     // .subscribe(dados => this.entradas = dados);
     
     this.entradas$ = this.serviceListagem.list()
+  }
+
+  deleteItem(){
+    console.log('oiiii');
+    
   }
 }

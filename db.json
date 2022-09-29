@@ -2,11 +2,18 @@
   "entrada": [
     {
       "id": 1,
-      "descrição": "sálario"
+      "name": "sálario",
+      "dinheiro": 34
     },
     {
-      "descrição": "Saída",
+      "name": "teste",
+      "dinheiro": 23,
       "id": 2
+    },
+    {
+      "name": "entrada",
+      "dinheiro": 11,
+      "id": 3
     }
   ]
 }

@@ -1,6 +1,6 @@
 export interface Entrada {
     id: number;
     descricao: string;
-    // valor: number;
+    valor: number;
     // data: Date;
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, tap } from 'rxjs';
+import { delay, take, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { Entrada } from '../models/entrada';
@@ -16,6 +16,10 @@ export class AppService {
 
   list() {
     return this.http.get<Entrada[]>(this.API)
-    .pipe(delay(2000), tap(console.log));
+    .pipe(delay(2000), tap());
+  }
+
+  create(items){
+    return this.http.post(this.API, items).pipe(take(1))
   }
 }

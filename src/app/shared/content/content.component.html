@@ -2,8 +2,12 @@
   *ngIf="entradas$ | async as lista; else loading"
   [p-items]="lista"
 >
-</po-table>
 
+</po-table>
+<span
+  class="po-icon po-icon-delete"
+  (click)="deleteItem()"
+></span>
 <ng-template  #loading>
   <span>Carregando cursos...</span>
 </ng-template>

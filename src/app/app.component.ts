@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
    
-  
+  teste="po-icon po-icon-cut"
 
 }
