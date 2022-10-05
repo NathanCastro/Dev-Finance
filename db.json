@@ -3,17 +3,8 @@
     {
       "id": 1,
       "name": "sálario",
-      "dinheiro": 34
-    },
-    {
-      "name": "teste",
-      "dinheiro": 23,
-      "id": 2
-    },
-    {
-      "name": "entrada",
-      "dinheiro": 11,
-      "id": 3
+      "valor": 34,
+      "data": "11/11/1995"
     }
   ]
 }

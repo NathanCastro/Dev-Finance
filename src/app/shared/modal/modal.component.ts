@@ -13,6 +13,7 @@ export class ModalComponent implements OnInit {
   @ViewChild('modal', { static: true }) modal: PoModalComponent;
   titleModal = '+ Nova Transação >';
   form: FormGroup;
+
   constructor(
     private formulario: FormBuilder,
     private serviceItems: AppService,
@@ -25,7 +26,8 @@ export class ModalComponent implements OnInit {
   formModal() {
     this.form = this.formulario.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
-      dinheiro: [null, [Validators.required]],
+      valor: [null, [Validators.required]],
+      data: [null,[Validators.required]]
     });
   }
   primary: PoModalAction = {
@@ -47,16 +49,16 @@ export class ModalComponent implements OnInit {
     if (this.form.valid) {
       this.serviceItems.create(this.form.value).subscribe(
         sucess => {
-          console.log('sucesso');
-          
+          console.log('sucesso');          
         }
       );
     }
+    
     this.modal.close()
   }
 
   cancel() {
-    // this.modal.close()
+    this.modal.close()
     this.form.reset();
     console.log('reset pegou');
   }
