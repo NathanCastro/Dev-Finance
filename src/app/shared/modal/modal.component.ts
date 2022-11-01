@@ -63,5 +63,8 @@ export class ModalComponent implements OnInit {
     console.log('reset pegou');
   }
 
-  onSubmit() {}
+  onSubmit() {
+    console.log('testando');
+    
+  }
 }

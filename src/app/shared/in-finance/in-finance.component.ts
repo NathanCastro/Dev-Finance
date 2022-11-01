@@ -8,26 +8,29 @@ import { AppService } from '../service/api-db.service';
   styleUrls: ['./in-finance.component.scss']
 })
 export class InFinanceComponent implements OnInit {
- teste:number;
+  
+ valendo:any;
  getValueResult:number;
- public logo = 'assets/logo.svg' ;
+ public logo = 'assets/logo.svg';
+ valorResultado:number
  
  constructor(private serviceEntrada: AppService){}
 
  ngOnInit() {
-  this.getResult(this.teste)
-  console.log('getResult',this.getResult(this.teste));
+  this.resultado()
+  // console.log('getResult',this.getResult(this.teste));
   
  }
 
-  getResult(resultValue: number): void{
-    
-    this.getValueResult = this.serviceEntrada.sum(resultValue)
-    console.log(this.getValueResult);
-    console.log('oi',this.serviceEntrada.sum(resultValue));
+  getResult(resultValue: number): void{    
+  //  this.getValueResult = this.serviceEntrada.sum(resultValue)
+  //   console.log(this.getValueResult);
     
   }
 
+  resultado(){
+    this.valendo = this.serviceEntrada.create(this.valorResultado)
+  }
 
 
 }

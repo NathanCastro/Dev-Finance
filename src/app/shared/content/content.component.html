@@ -1,13 +1,17 @@
-<po-table
-  *ngIf="entradas$ | async as lista; else loading"
-  [p-items]="lista"
->
+<div let index >
+  <po-table
+    *ngIf="entradas$ | async as lista; else loading"
+    [p-items]="lista"
+    [p-columns]="columns"
+    [p-actions]="tableAction"
+  >
 
-</po-table>
-<span
-  class="po-icon po-icon-delete"
-  (click)="deleteItem()"
-></span>
-<ng-template  #loading>
-  <span>Carregando cursos...</span>
-</ng-template>
+  </po-table>
+  <span
+    (click)="deleteItem()"
+  ></span>
+
+  <ng-template  #loading>
+    <span>Carregando cursos...</span>
+  </ng-template>
+</div>

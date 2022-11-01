@@ -23,9 +23,9 @@ export class AppService {
     return this.http.post(this.API, items).pipe(take(1))
   }
 
-  sum(resultValue: number){
+  sum(resultSum: number){
     let resultado: number = 0;
-    resultado += resultValue;
+    resultado += resultSum;
     return resultado
   }
 }

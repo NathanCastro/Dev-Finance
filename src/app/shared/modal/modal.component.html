@@ -5,7 +5,7 @@
     [p-primary-action]="primary"
     [p-secondary-action]="secundary"
     > 
-    <form [formGroup]="form" (onSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <po-input
             name="salvar"
             p-clean
