@@ -7,11 +7,9 @@
   >
 
   </po-table>
-  <span
-    (click)="deleteItem()"
-  ></span>
-
   <ng-template  #loading>
-    <span>Carregando cursos...</span>
+    <div>
+      <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
+    </div>
   </ng-template>
 </div>

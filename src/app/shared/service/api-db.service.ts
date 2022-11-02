@@ -23,6 +23,10 @@ export class AppService {
     return this.http.post(this.API, items).pipe(take(1))
   }
 
+  update(items){
+    return this.http.put(`${this.API}/${items}`, items).pipe()
+  }
+
   sum(resultSum: number){
     let resultado: number = 0;
     resultado += resultSum;

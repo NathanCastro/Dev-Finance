@@ -14,12 +14,14 @@ export class ContentComponent implements OnInit {
 
   constructor(private serviceListagem: AppService) { }
    
-  entradas$: Observable<Entrada[]>;
+  entradas$: Observable<Entrada[]>;  
+  isHideLoading = true;
 
   columns:PoTableColumn[] = [
+    {property: 'id', label:'Id'},
     {property: 'name', label:'Nome'},
     {property: 'valor', label:'Valor'},
-    {property: 'data', label:'data', format: 'dd-MM-yy'}
+    {property: 'data', label:'Data', type:'date'}
   ]
   
   tableAction:PoTableAction[] = [{
@@ -30,7 +32,12 @@ export class ContentComponent implements OnInit {
   }]
 
   ngOnInit(): void {
-    this.listemDate();    
+    this.listemDate(); 
+    
+    this.isHideLoading = false;
+    setTimeout(() => {
+      this.isHideLoading = true;
+    }, 4000);
   }
 
   listemDate(){    
@@ -40,4 +47,6 @@ export class ContentComponent implements OnInit {
   deleteItem(){
     console.log('oiiii');  
   }
+
+  
 }

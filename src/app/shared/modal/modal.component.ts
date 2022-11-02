@@ -1,6 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
+import { PoModalAction, PoModalComponent, PoNotificationService } from '@po-ui/ng-components';
 
 import { AppService } from '../service/api-db.service';
 
@@ -13,17 +14,20 @@ export class ModalComponent implements OnInit {
   @ViewChild('modal', { static: true }) modal: PoModalComponent;
   titleModal = '+ Nova Transação >';
   form: FormGroup;
-
+  isHideLoading = true;
+  item:any;
   constructor(
     private formulario: FormBuilder,
     private serviceItems: AppService,
+    private location: Location,
+    private poNotification: PoNotificationService
   ) {}
 
   ngOnInit(): void {
     this.formModal();
   }
 
-  formModal() {
+  public formModal() {
     this.form = this.formulario.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
       valor: [null, [Validators.required]],
@@ -41,30 +45,32 @@ export class ModalComponent implements OnInit {
     action: () => this.cancel(),
   };
 
-  modalOpen() {
+  public modalOpen() {
     this.modal.open();
   }
 
-  save() {
+   save() {
     if (this.form.valid) {
-      this.serviceItems.create(this.form.value).subscribe(
-        sucess => {
-          console.log('sucesso');          
-        }
-      );
+      this.serviceItems.create(this.form.value).subscribe();
     }
+    this.serviceItems.update(this.item).subscribe( retorno => {
+      this.item = retorno
+    })
+    // this.load();
+    this.modal.close();
+    this.poNotification.success('deu certo')
     
-    this.modal.close()
   }
 
-  cancel() {
+  private cancel() {
     this.modal.close()
     this.form.reset();
-    console.log('reset pegou');
   }
 
-  onSubmit() {
-    console.log('testando');
-    
-  }
+  // Não está funcionando mais
+  // private load() {
+  //   (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && 
+  //   location.reload();
+  //   sessionStorage.refresh = false;    
+  // }
 }

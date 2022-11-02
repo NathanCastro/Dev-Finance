@@ -1,10 +1,11 @@
+import { Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { PoModalModule, PoModule, PoNavbarModule } from '@po-ui/ng-components';
+import { PoLoadingModule, PoModalModule, PoModule, PoNavbarModule } from '@po-ui/ng-components';
 
 import { AppComponent } from './app.component';
 import { ContentComponent } from './shared/content/content.component';
@@ -22,6 +23,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     ContentComponent
   ],
   imports: [
+    PoLoadingModule,
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
@@ -32,7 +34,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     PoModalModule,
     RouterModule.forRoot([])
   ],
-  providers: [],
+  providers: [Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
