@@ -53,7 +53,7 @@ export class ModalComponent implements OnInit {
     if (this.form.valid) {
       this.serviceItems.create(this.form.value).subscribe();
     }
-    this.load();
+    this.serviceItems.load()
     this.modal.close();
     this.poNotification.success('deu certo')
     
@@ -62,12 +62,5 @@ export class ModalComponent implements OnInit {
   private cancel() {
     this.modal.close()
     this.form.reset();
-  }
-
-  
-  private load() {
-    (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && 
-    location.reload();
-    sessionStorage.refresh = false;    
   }
 }

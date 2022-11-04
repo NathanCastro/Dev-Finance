@@ -14,22 +14,28 @@ export class AppService {
 
   private readonly API = `${environment.API}entrada`
 
-  list() {
+  public list() {
     return this.http.get<Entrada[]>(this.API)
     .pipe(delay(2000));
   }
 
-  create(items){
+  public create(items){
     return this.http.post(this.API, items).pipe(take(1))
   }
 
-  delete(id){
-    return this.http.delete(`${this.API}`).pipe(take(1))
+  public delete(id:number){
+    return this.http.delete<any>(`${this.API}/${id}`).pipe(take(1))
   }
 
   sum(resultSum: number){
     let resultado: number = 0;
     resultado += resultSum;
     return resultado
+  }
+
+  public load() {
+    (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && 
+    location.reload();
+    sessionStorage.refresh = false;    
   }
 }

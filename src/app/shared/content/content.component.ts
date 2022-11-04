@@ -43,12 +43,13 @@ export class ContentComponent implements OnInit {
     this.entradas$ = this.serviceListagem.list()
   }
 
-  deleteItem(){
-    this.serviceListagem.delete(this.itemSelecionado.id)
-    .subscribe(
-      success => this.isLoading(),
-      error => this.mensagem
-    );
+  deleteItem(itemSelecionado:Entrada){
+    this.serviceListagem.delete(itemSelecionado.id).subscribe(
+      () => {
+        console.log(this.mensagem);                
+      }
+      
+    )
     
   }
 
