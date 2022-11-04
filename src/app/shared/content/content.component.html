@@ -1,5 +1,4 @@
-<div let index >
-  <po-table
+<po-table
     *ngIf="entradas$ | async as lista; else loading"
     [p-items]="lista"
     [p-columns]="columns"
@@ -12,4 +11,3 @@
       <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
     </div>
   </ng-template>
-</div>

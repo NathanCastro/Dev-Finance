@@ -23,8 +23,8 @@ export class AppService {
     return this.http.post(this.API, items).pipe(take(1))
   }
 
-  update(items){
-    return this.http.put(`${this.API}/${items}`, items).pipe()
+  delete(id){
+    return this.http.delete(`${this.API}`).pipe(take(1))
   }
 
   sum(resultSum: number){

@@ -49,14 +49,11 @@ export class ModalComponent implements OnInit {
     this.modal.open();
   }
 
-   save() {
+  private save() {
     if (this.form.valid) {
       this.serviceItems.create(this.form.value).subscribe();
     }
-    this.serviceItems.update(this.item).subscribe( retorno => {
-      this.item = retorno
-    })
-    // this.load();
+    this.load();
     this.modal.close();
     this.poNotification.success('deu certo')
     
@@ -67,10 +64,10 @@ export class ModalComponent implements OnInit {
     this.form.reset();
   }
 
-  // Não está funcionando mais
-  // private load() {
-  //   (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && 
-  //   location.reload();
-  //   sessionStorage.refresh = false;    
-  // }
+  
+  private load() {
+    (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && 
+    location.reload();
+    sessionStorage.refresh = false;    
+  }
 }

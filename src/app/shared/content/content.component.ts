@@ -16,7 +16,10 @@ export class ContentComponent implements OnInit {
    
   entradas$: Observable<Entrada[]>;  
   isHideLoading = true;
+  itemSelecionado:Entrada;
+  mensagem:'deu ruim'
 
+  
   columns:PoTableColumn[] = [
     {property: 'id', label:'Id'},
     {property: 'name', label:'Nome'},
@@ -33,11 +36,7 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.listemDate(); 
-    
-    this.isHideLoading = false;
-    setTimeout(() => {
-      this.isHideLoading = true;
-    }, 4000);
+    this. isLoading()    
   }
 
   listemDate(){    
@@ -45,8 +44,20 @@ export class ContentComponent implements OnInit {
   }
 
   deleteItem(){
-    console.log('oiiii');  
+    this.serviceListagem.delete(this.itemSelecionado.id)
+    .subscribe(
+      success => this.isLoading(),
+      error => this.mensagem
+    );
+    
   }
 
+
+  isLoading(){
+    this.isHideLoading = false;
+    setTimeout(() => {
+      this.isHideLoading = true;
+    }, 2000);
+  }
   
 }
