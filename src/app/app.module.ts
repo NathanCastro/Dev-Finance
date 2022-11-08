@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +33,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     PoModalModule,
     RouterModule.forRoot([])
   ],
-  providers: [Location],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

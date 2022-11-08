@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoNotificationService } from '@po-ui/ng-components';
 
@@ -16,10 +16,13 @@ export class ModalComponent implements OnInit {
   form: FormGroup;
   isHideLoading = true;
   item:any;
+
+  @Output() reloadList = new EventEmitter();
+
+
   constructor(
     private formulario: FormBuilder,
     private serviceItems: AppService,
-    private location: Location,
     private poNotification: PoNotificationService
   ) {}
 
@@ -51,12 +54,16 @@ export class ModalComponent implements OnInit {
 
   private save() {
     if (this.form.valid) {
-      this.serviceItems.create(this.form.value).subscribe();
+      this.serviceItems.create(this.form.value).subscribe(
+        () => {
+          this.modal.close();
+          // this.form.reset();
+          this.poNotification.success('deu certo')
+          this.reloadList.emit();
+        }
+      );
     }
-    this.serviceItems.load()
-    this.modal.close();
-    this.poNotification.success('deu certo')
-    
+        
   }
 
   private cancel() {

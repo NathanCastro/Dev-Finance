@@ -1,13 +1,17 @@
-<po-table
-    *ngIf="entradas$ | async as lista; else loading"
-    [p-items]="lista"
-    [p-columns]="columns"
-    [p-actions]="tableAction"
-  >
+<app-modal
+  (reloadList)="reloadList($event)"
+></app-modal>
 
-  </po-table>
-  <ng-template  #loading>
-    <div>
-      <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
-    </div>
-  </ng-template>
+<po-table
+  *ngIf="lista; else loading"
+  [p-items]="lista"
+  [p-columns]="columns"
+  [p-actions]="tableAction"
+>
+</po-table>
+<ng-template  #loading>
+  <div>
+    <po-loading-overlay [hidden]="isHideLoading"></po-loading-overlay>
+  </div>
+</ng-template>
+

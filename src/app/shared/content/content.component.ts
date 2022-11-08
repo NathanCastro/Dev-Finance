@@ -13,7 +13,8 @@ import { AppService } from '../service/api-db.service';
 export class ContentComponent implements OnInit {
 
   constructor(private serviceListagem: AppService) { }
-   
+  lista:any[];
+  
   entradas$: Observable<Entrada[]>;  
   isHideLoading = true;
   itemSelecionado:Entrada;
@@ -23,7 +24,7 @@ export class ContentComponent implements OnInit {
   columns:PoTableColumn[] = [
     {property: 'id', label:'Id'},
     {property: 'name', label:'Nome'},
-    {property: 'valor', label:'Valor'},
+    {property: 'valor', label:'Valor', format:'BRL'} ,
     {property: 'data', label:'Data', type:'date'}
   ]
   
@@ -40,15 +41,16 @@ export class ContentComponent implements OnInit {
   }
 
   listemDate(){    
-    this.entradas$ = this.serviceListagem.list()
+    this.serviceListagem.list().subscribe(res =>{
+      this.lista = res;
+
+    })
+   
   }
 
   deleteItem(itemSelecionado:Entrada){
     this.serviceListagem.delete(itemSelecionado.id).subscribe(
-      () => {
-        console.log(this.mensagem);                
-      }
-      
+      () => this.listemDate()
     )
     
   }
@@ -59,6 +61,10 @@ export class ContentComponent implements OnInit {
     setTimeout(() => {
       this.isHideLoading = true;
     }, 2000);
+  }
+
+  reloadList(event){
+    this.listemDate();
   }
   
 }
