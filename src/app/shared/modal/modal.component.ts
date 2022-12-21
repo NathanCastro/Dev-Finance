@@ -1,4 +1,3 @@
-import { Location } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoNotificationService } from '@po-ui/ng-components';
@@ -14,7 +13,6 @@ export class ModalComponent implements OnInit {
   @ViewChild('modal', { static: true }) modal: PoModalComponent;
   titleModal = '+ Nova Transação >';
   form: FormGroup;
-  isHideLoading = true;
   item:any;
 
   @Output() reloadList = new EventEmitter();
@@ -57,13 +55,12 @@ export class ModalComponent implements OnInit {
       this.serviceItems.create(this.form.value).subscribe(
         () => {
           this.modal.close();
-          // this.form.reset();
           this.poNotification.success('deu certo')
           this.reloadList.emit();
+          this.form.reset();
         }
       );
-    }
-        
+    }        
   }
 
   private cancel() {

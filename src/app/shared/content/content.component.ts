@@ -37,22 +37,21 @@ export class ContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.listemDate(); 
-    this. isLoading()    
+    this.isLoading()    
   }
 
   listemDate(){    
     this.serviceListagem.list().subscribe(res =>{
       this.lista = res;
-
+      this.isLoading()
     })
    
   }
 
   deleteItem(itemSelecionado:Entrada){
     this.serviceListagem.delete(itemSelecionado.id).subscribe(
-      () => this.listemDate()
-    )
-    
+      () => this.listemDate()      
+    );   
   }
 
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, take } from 'rxjs';
+import { take } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { Entrada } from '../models/entrada';
@@ -16,7 +16,7 @@ export class AppService {
 
   public list() {
     return this.http.get<Entrada[]>(this.API)
-    .pipe(delay(2000));
+    .pipe();
   }
 
   public create(items){
@@ -32,10 +32,5 @@ export class AppService {
   //   resultado += resultSum;
   //   return resultado
   // }
-
-  public load() {
-    (sessionStorage.refresh == 'true' || !sessionStorage.refresh) && 
-    location.reload();
-    sessionStorage.refresh = false;    
-  }
+ 
 }
