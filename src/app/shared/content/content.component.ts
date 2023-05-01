@@ -18,7 +18,7 @@ export class ContentComponent implements OnInit {
   entradas$: Observable<Entrada[]>;  
   isHideLoading = true;
   itemSelecionado:Entrada;
-  mensagem:'deu ruim'
+  
 
   
   columns:PoTableColumn[] = [
@@ -32,7 +32,6 @@ export class ContentComponent implements OnInit {
     label: '',
     icon: 'po-icon po-icon-delete',
     action: this.deleteItem.bind(this)
-
   }]
 
   ngOnInit(): void {
@@ -41,7 +40,7 @@ export class ContentComponent implements OnInit {
   }
 
   listemDate(){    
-    this.serviceListagem.list().subscribe(res =>{
+    this.serviceListagem.list().subscribe(res => {
       this.lista = res;
       this.isLoading()
     })

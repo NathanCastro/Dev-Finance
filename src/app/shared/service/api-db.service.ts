@@ -15,8 +15,7 @@ export class AppService {
   private readonly API = `${environment.API}entrada`
 
   public list() {
-    return this.http.get<Entrada[]>(this.API)
-    .pipe();
+    return this.http.get<Entrada[]>(this.API).pipe();
   }
 
   public create(items){
@@ -27,10 +26,10 @@ export class AppService {
     return this.http.delete<any>(`${this.API}/${id}`).pipe(take(1))
   }
 
-  // sum(resultSum: number){
-  //   let resultado: number = 0;
-  //   resultado += resultSum;
-  //   return resultado
-  // }
+  sum(resultSum: number){
+    let resultado: number = 0;
+    resultado += resultSum;
+    return resultado
+  }
  
 }

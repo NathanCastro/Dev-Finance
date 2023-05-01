@@ -8,7 +8,7 @@ import { AppService } from '../service/api-db.service';
   styleUrls: ['./in-finance.component.scss']
 })
 export class InFinanceComponent implements OnInit {
-  
+
  valendo:any;
  getValueResult:number;
  public logo = 'assets/logo.svg';
@@ -17,20 +17,21 @@ export class InFinanceComponent implements OnInit {
  constructor(private serviceEntrada: AppService){}
 
  ngOnInit() {
-  this.resultado()
-  // console.log('getResult',this.getResult(this.teste));
-  
+  this.resultado();
+  // this.getResult()
  }
 
-  getResult(resultValue: number): void{    
-  //  this.getValueResult = this.serviceEntrada.sum(resultValue)
-  //   console.log(this.getValueResult);
+  getResult(): void{    
+    this.getValueResult = this.serviceEntrada.sum(5)
+    console.log('oi',this.getValueResult);
     
   }
 
   resultado(){
     this.valendo = this.serviceEntrada.create(this.valorResultado)
-  }
-
+  } 
 
 }
+
+
+//colocar o valor do form dentro do serviço sum
